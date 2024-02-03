@@ -8,8 +8,8 @@ namespace Tracing
 {
     public class ThreadTrace
     {
-        public List<MethodTrace> methodsTrace = new List<MethodTrace>();
         public int threadId;
         public long executeTime;
+        public List<MethodTrace> methodsTrace = new List<MethodTrace>();
     }
 }

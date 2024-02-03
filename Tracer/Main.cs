@@ -11,6 +11,8 @@ using Serialization;
 class TracerLab
 {
     public static CustomTracer tracer = new CustomTracer();
+    private static IPrinter console = new ConsolePrinter();
+    private static IPrinter file = new FilePrinter(@"C:\Users\User\Desktop\log.txt");
     static public void Main(string[] args)
     {
         ISerializer jsonSerializer = new JSONSerializer();
@@ -22,7 +24,8 @@ class TracerLab
         thread1.Join();
         thread2.Join();
         TraceResult res = tracer.GetTraceResult();
-        Console.WriteLine(jsonSerializer.Serialize(res));
+        console.Print(jsonSerializer.Serialize(res));
+        file.Print(jsonSerializer.Serialize(res));
         int i = 0;
     }
 

@@ -43,6 +43,7 @@ namespace Tracing
                     time += method.executeInMillis;
                 }
                 thread.Value.executeTime = time;
+                info.traces.Add(thread.Value);
             }
             return info;
         }

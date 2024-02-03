@@ -37,13 +37,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Serialization\FilePrinter.cs" />
+    <Compile Include="Serialization\IPrinter.cs" />
     <Compile Include="Serialization\JSONSerializer.cs" />
-    <Compile Include="Serialization\Serializer.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="Serialization\ConsolePrinter.cs" />
     <Compile Include="Tracing\CustomTracer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Tracing\MethodTrace.cs" />
     <Compile Include="Tracing\ThreadTrace.cs" />
-    <Compile Include="Tracing\Tracer.cs" />
+    <Compile Include="Tracing\ITracer.cs" />
     <Compile Include="Tracing\TraceResult.cs" />
   </ItemGroup>
   <ItemGroup>

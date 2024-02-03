@@ -36,9 +36,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bar.cs" />
     <Compile Include="Tracing\CustomTracer.cs" />
-    <Compile Include="Foo.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Tracing\MethodTrace.cs" />
     <Compile Include="Tracing\ThreadTrace.cs" />

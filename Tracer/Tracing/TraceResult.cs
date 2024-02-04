@@ -10,6 +10,8 @@ namespace Tracing {
         [JsonIgnore]
         [XmlIgnore]
         public ConcurrentDictionary<int, ThreadTrace> threads;
+        [XmlElement(ElementName = "threads")]
+        [JsonProperty(propertyName:"threads")]
         public List<ThreadTrace> traces = new List<ThreadTrace>();
 
         public TraceResult()

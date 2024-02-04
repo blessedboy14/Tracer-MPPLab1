@@ -1,7 +1,7 @@
 ﻿namespace Serialization
 {
-    public interface ISerializer
+    public interface ISerializer<T>
     {
-        string Serialize(Tracing.TraceResult input);
+        string Serialize(T input);
     }
 }

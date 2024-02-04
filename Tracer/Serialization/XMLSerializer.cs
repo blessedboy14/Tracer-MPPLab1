@@ -5,11 +5,11 @@ using System.Xml;
 
 namespace Serialization
 {
-    public class XMLSerializer : ISerializer
+    public class XMLSerializer<T> : ISerializer<T>
     {
-        public string Serialize(TraceResult input)
+        public string Serialize(T input)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(TraceResult));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
             using (StringWriter sw = new StringWriter())
             {
                 using (XmlTextWriter writer = new XmlTextWriter(sw) { Formatting = Formatting.Indented })

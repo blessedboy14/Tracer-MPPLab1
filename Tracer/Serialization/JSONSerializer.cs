@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 
 namespace Serialization
 {
-    public class JSONSerializer : ISerializer
+    public class JSONSerializer<T> : ISerializer<T>
     {
-        public string Serialize(TraceResult input)
+        public string Serialize(T input)
         {
             string jsonData = JsonConvert.SerializeObject(input, Formatting.Indented);
             return jsonData;

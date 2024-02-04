@@ -13,9 +13,10 @@ class TracerLab
     public static CustomTracer tracer = new CustomTracer();
     private static IPrinter console = new ConsolePrinter();
     private static IPrinter file = new FilePrinter(@"C:\Users\User\Desktop\log.txt");
+    private static ISerializer jsonSerializer = new JSONSerializer();
+    private static ISerializer xmlSerializer = new XMLSerializer();
     static public void Main(string[] args)
     {
-        ISerializer jsonSerializer = new JSONSerializer();
         Thread thread1 = new Thread(exampleMethod);
         Thread thread2 = new Thread(exampleMethod);
         thread1.Start();
@@ -27,6 +28,7 @@ class TracerLab
         console.Print(jsonSerializer.Serialize(res));
         file.Print(jsonSerializer.Serialize(res));
         int i = 0;
+        Console.WriteLine(xmlSerializer.Serialize(res));
     }
 
     static public void exampleMethod()

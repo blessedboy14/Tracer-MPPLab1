@@ -26,8 +26,8 @@ class TracerLab
         thread2.Join();
         TraceResult res = tracer.GetTraceResult();
         console.Print(jsonSerializer.Serialize(res));
-        file.Print(jsonSerializer.Serialize(res));
         Console.WriteLine(xmlSerializer.Serialize(res));
+        file.Print(xmlSerializer.Serialize(res));
     }
 
     static public void exampleMethod()

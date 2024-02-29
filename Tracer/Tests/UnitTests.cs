@@ -12,7 +12,6 @@ namespace Testing
     {
         static CustomTracer tracer;
 
-
         [SetUp]
         public void SetUp()
         {
@@ -132,7 +131,7 @@ namespace Testing
             mTrace = mTrace.stack[0];
             ClassicAssert.AreEqual(mTrace.methodName, "exampleMethod");
             ClassicAssert.AreEqual(mTrace.className, typeof(UnitTests).FullName);
-            ClassicAssert.IsTrue(mTrace.stack.Count == 0);
+            ClassicAssert.IsTrue(mTrace.stack.Count == 0);  
         }
     }
 }

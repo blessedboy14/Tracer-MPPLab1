@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using System.Threading;
 using Tracing;
 using Serialization;
 
@@ -18,7 +12,7 @@ class TracerLab
     static public void Main(string[] args)
     {
         Thread thread1 = new Thread(exampleMethod);
-        Thread thread2 = new Thread(exampleMethod);
+        Thread thread2 = new Thread(outerMethod);
         thread1.Start();
         thread2.Start();
         exampleMethod();
@@ -26,7 +20,6 @@ class TracerLab
         thread2.Join();
         TraceResult res = tracer.GetTraceResult();
         console.Print(jsonSerializer.Serialize(res));
-        Console.WriteLine(xmlSerializer.Serialize(res));
         file.Print(xmlSerializer.Serialize(res));
     }
 
@@ -34,6 +27,14 @@ class TracerLab
     {
         tracer.StartTrace();
         Thread.Sleep(2000);
+        tracer.StopTrace();
+    }
+
+    static public void outerMethod()
+    {
+        tracer.StartTrace();
+        exampleMethod();
+        Thread.Sleep(500);
         tracer.StopTrace();
     }
 }

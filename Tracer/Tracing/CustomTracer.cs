@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Reflection;
 using System.Threading;
 using System.Collections.Concurrent;
 
@@ -14,7 +8,6 @@ namespace Tracing
 {
     public class CustomTracer : ITracer
     {
-        public Stopwatch watch;
         private ConcurrentDictionary<int, List<Stopwatch>> timers = new ConcurrentDictionary<int, List<Stopwatch>>();
         private TraceResult info = new TraceResult();
         private ConcurrentDictionary<int, int> methodsInThread = new ConcurrentDictionary<int, int>();
